@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+
+        
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: #03045e;
+            
+        }
+        div{
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        .hand{
+            height: 20px;
+            width: 100px;
+            color: white;
+            border: white 5px solid;
+        }
+        h1{
+            text-align: center;
+            color: #caf0f8;
+            font-family: 'Lobster', cursive;
+            letter-spacing:3px;
+        }
+        hr{
+            width: 70%;
+        }
+        .circle1{
+            border: #0096c7 10px solid;
+            height: 640px;
+            width: 640px;
+            border-radius: 60%;  
+        }
+        .circle2{
+            border: #00b4d8 10px solid;
+            height: 620px;
+            width: 620px;
+            border-radius: 55%;  
+        }
+        .circle3{
+            border: #48cae4 10px solid;
+            height: 600px;
+            width: 600px;
+            border-radius: 50%;  
+        }
+        .circle4{
+            border: #03045e 250px solid;
+            height: 0px;
+            width: 0px;
+            border-radius: 50%;  
+            z-index: 1;
+        }
+        .sechand{
+            height: 1px;
+            width:300px;
+            border: white 3px solid ;
+            color: white;
+            position: absolute;
+            transform-origin: 100%;
+            transform: rotate(90deg);
+            right: 50%;
+  transition: 1s linear;
+  /* transition-duration: 900ms; */
+  /* transition-delay: 1s; */
+  transition-property: revert;
+        }
+        .hourhand{
+            height:0px;
+            width:300px;
+            border: white 10px solid ;
+            color: #caf0f8;
+            position: absolute;
+            transform-origin: 100%;
+            transform: rotate(90deg);
+            right: 50%;
+        }
+        .minhand{
+            height: 0px;
+            width:300px;
+            color: #caf0f8;
+            border: white 5px solid ;
+            position: absolute;
+            transform-origin: 100%;
+            transform: rotate(90deg);
+            right: 50%;
+        }
+        .img{
+            z-index: -1;
+            right: 70%;
+        }
+ 
+    </style>
+</head>
+<body>
+    <!-- <ul>
+        <li>Positions in css</li>
+        <li>align and justify items</li>
+        <li>Transform</li>
+        <li> JS variables and scopes</li>
+        <li>Operators</li>
+        <li>Query Selector</li>
+    </ul> -->
+<!-- <div class="hand"></div> -->
+  <h1>Clock using Javascript</h1>
+    <hr>
+    
+<div>
+    <!-- <div class="img"> <img width="600px" src="purzen_Clock_face_web.svg" alt="">
+    </div>  -->
+    <div class="sechand"></div>
+    <div class="hourhand"></div>
+    <div class="minhand"></div>
+    
+    <!-- <div class="circle"></div> -->
+    <div class="circle4">
+        <!-- <ul class="circle-container">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+            <li>11</li>
+            <li>12</li>
+        </ul> -->
+        
+    <div class="circle1">
+        <div class="circle2">
+        <div class="circle3">
+         
+        </div>
+        </div></div></div>
+    
+        
+</div>
+
+</body>
+<script>
+    const secHand = document.querySelector(".sechand")
+    const hourHand = document.querySelector(".hourhand")
+    const minHand = document.querySelector(".minhand")
+
+function setClock() {
+    const now = new Date()
+
+    const seconds = now.getSeconds()
+    const secondsDegrees = ((seconds/60)* 360) + 90
+    secHand.style.transform = `rotate(${secondsDegrees}deg)`
+
+    const minutes = now.getMinutes()
+    const minutesDegrees = ((minutes/60)* 360) + 90
+    minHand.style.transform = `rotate(${minutesDegrees}deg)`
+
+    const hours = now.getHours()
+    const hoursDegrees = ((hours/12)* 360) + 90
+    hourHand.style.transform = `rotate(${hoursDegrees}deg)`
+}
+
+setInterval(function(){
+    setClock()
+},1000)
+</script>
+</html>
