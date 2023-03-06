@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/immutable/2.0.4/Repeat.min.js"></script>
     <title>Document</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
@@ -57,30 +58,45 @@
             border-radius: 50%;  
         }
         .circle4{
-            border: #03045e 250px solid;
+            border: #03045e 190px solid;
             height: 0px;
             width: 0px;
             border-radius: 50%;  
             z-index: 1;
+            
         }
+        /* .sechand,
+        .minhand,
+        .hourhand{
+           
+display: none;
+        }
+         */
         .sechand{
-            height: 1px;
-            width:300px;
-            border: white 3px solid ;
+            height: 0px;
+            width:260px;
+            border: #caf0f8 2px solid ;
+            border-radius: 30%;
             color: white;
             position: absolute;
             transform-origin: 100%;
             transform: rotate(90deg);
             right: 50%;
-  transition: 1s linear;
+  /* transition: 1s linear;
   /* transition-duration: 900ms; */
   /* transition-delay: 1s; */
-  transition-property: revert;
+  /* transition-property: revert; */
+  animation: rotate 30s linear infinite;
         }
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+}
         .hourhand{
             height:0px;
-            width:300px;
-            border: white 10px solid ;
+            width:250px;
+            border: #caf0f8 7px solid ;
+            border-radius: 60%;
             color: #caf0f8;
             position: absolute;
             transform-origin: 100%;
@@ -89,9 +105,10 @@
         }
         .minhand{
             height: 0px;
-            width:300px;
+            width:254px;
             color: #caf0f8;
-            border: white 5px solid ;
+            border: #caf0f8 5px solid ;
+            border-radius: 60%;
             position: absolute;
             transform-origin: 100%;
             transform: rotate(90deg);
@@ -101,6 +118,29 @@
             z-index: -1;
             right: 70%;
         }
+        span{
+            position: absolute;
+            inset: 20px;
+            top: 250px;
+            height: 60%;
+            color: white;
+            text-align: center;
+            z-index: 2;
+            transform: rotate(calc(30deg*var(--i)));
+            font-weight:900;
+            font-size: large;
+        }
+        .dot {
+  height: 0;
+  border-radius: 50%;
+  border: #caf0f8 3px solid;
+  background-color: #333;
+  position: absolute;
+  top: 55.7%;
+  left: 49.8%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
  
     </style>
 </head>
@@ -116,6 +156,7 @@
 <!-- <div class="hand"></div> -->
   <h1>Clock using Javascript</h1>
     <hr>
+    
     
 <div>
     <!-- <div class="img"> <img width="600px" src="purzen_Clock_face_web.svg" alt="">
@@ -147,10 +188,80 @@
          
         </div>
         </div></div></div>
-    
-        
+    <span style="--i:1"> <strong>1</strong></span>
+    <span style="--i:2">2</span>
+    <span style="--i:3">3</span>
+    <span style="--i:4">4</span>
+    <span style="--i:5">5</span>
+    <span style="--i:6">6</span>
+    <span style="--i:7">7</span>
+    <span style="--i:8">8</span>
+    <span style="--i:9">9</span>
+    <span style="--i:10">10</span>
+    <span style="--i:11">11</span>
+    <span style="--i:12">12</span>  
 </div>
 
+<div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
 </body>
 <script>
     const secHand = document.querySelector(".sechand")
@@ -176,5 +287,11 @@ function setClock() {
 setInterval(function(){
     setClock()
 },1000)
+
+const dots = document.querySelectorAll('.dot');
+  dots.forEach((dot, index) => {
+    dot.style.transform = `rotate(${index * 6}deg) translate(0, -260px)`;
+  });
+
 </script>
 </html>
